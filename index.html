@@ -393,24 +393,21 @@ new Chart(ctx, {
             The public model zoo containing enormous powerful pretrained model families (\eg, DeiT/Swin) has reached an 
             unprecedented scope than ever, which significantly contributes to the success of deep learning. As each model 
             family consists of pretrained models with diverse scales (\eg, DeiT-Ti/S/B), it naturally arises a fundamental 
-            question of how to effectively assemble these readily available models in a family for dynamic accuracy-efficiency trade-offs at runtime. 
+            question of how to efficiently assemble these readily available models in a family for dynamic accuracy-efficiency trade-offs at runtime. 
           </p>
           <p>
-            In this work, we present <span class="dnerf"></span>Stitchable Neural Networks</span> (SN-Net), a novel scalable deep learning paradigm for 
-            efficient model design and deployment which directly inherits the rich knowledge of coarse-grained pretrained 
-            models by model stitching to generate a large number of fine-grained networks in terms of the complexity/performance.
-             Specifically, SN-Net splits a family of pretrained neural networks, which we call anchors, across the blocks/layers
-              and then stitches them together with simple stitching layers to map the activations from one anchor to another. 
+            To this end, we present <span class="dnerf"></span>Stitchable Neural Networks</span> (SN-Net), a novel scalable and efficient
+             framework for model deployment which cheaply produces numerous networks with different complexity and performance trade-offs 
+             given a family of pretrained neural networks, which we call anchors. Specifically, SN-Net splits the anchors across the 
+             blocks/layers and then stitches them together with simple stitching layers to map the activations from one anchor to another.
           </p>
           <p>
-            With only a few epochs of training, SN-Net achieves smoothly interpolation-like performance between anchors 
-            of different scales. At runtime, SN-Net can instantly adapt to dynamic resource constraints by switching the 
-            stitching positions. Furthermore, we provide a comprehensive study on what, how and where to stitch as well 
-            as a simple strategy for effectively and efficiently training SN-Net. 
-            Extensive experiments on ImageNet demonstrate that SN-Net can obtain on-par or even better performance than many 
-            individually trained networks while supporting diverse deployment scenarios. 
-            In particular, by stitching Swin Transformers, we challenge hundreds of models in Timm model zoo with a single network. 
-            We believe this new elastic model framework can serve as a strong baseline for further research in wider communities.
+            With only a few epochs of training, SN-Net effectively interpolates between the performance of anchors with varying scales. 
+            At runtime, SN-Net can instantly adapt to dynamic resource constraints by switching the stitching positions. 
+            Extensive experiments on ImageNet classification demonstrate that SN-Net can obtain on-par or even better performance 
+            than many individually trained networks while supporting diverse deployment scenarios. For example, by stitching Swin 
+            Transformers, we challenge hundreds of models in Timm model zoo with a single network. We believe this new elastic model 
+            framework can serve as a strong baseline for further research in wider communities.
           </p>
         </div>
       </div>
